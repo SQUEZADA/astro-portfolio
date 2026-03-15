@@ -1,0 +1,28 @@
+---
+description: Astro project stack and conventions
+alwaysApply: true
+---
+
+# Astro Portfolio Project
+
+## Tech Stack
+
+- **Framework:** Astro 5 (static output)
+- **UI:** React 19 with `@astrojs/react`
+- **Styling:** Tailwind CSS 4 via `@tailwindcss/vite` plugin
+- **Components:** `@cloudflare/kumo` (UI library), `@phosphor-icons/react` (icons)
+- **Deployment:** Cloudflare Workers (static assets) — see `wrangler.jsonc`
+
+## Project Structure
+
+- `src/pages/` — Astro pages (`.astro`)
+- `src/components/` — React components (`.tsx`) hydrated with `client:visible`
+- `src/layouts/` — Astro layouts
+- `src/styles/global.css` — Global styles, Tailwind imports, Kumo theme
+- `public/` — Static assets served as-is
+
+## Important Notes
+
+- React components use `client:visible` for hydration — they render on the client only when visible in viewport
+- Tailwind is configured as a Vite plugin, not as an Astro integration
+- Kumo CSS is imported in `global.css` via `@import "@cloudflare/kumo/styles/tailwind"` and source scanning via `@source`

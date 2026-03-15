@@ -1,0 +1,22 @@
+---
+description: NPM scripts and local development commands
+globs: package.json
+alwaysApply: false
+---
+
+# NPM Scripts
+
+| Script | Command | Purpose |
+|--------|---------|---------|
+| `dev` | `astro dev` | Local dev server |
+| `build` | `astro build` | Production build (output in `dist/`) |
+| `preview` | `astro preview` | Preview production build locally |
+
+## Deployment
+
+Deployment is automatic via Cloudflare Workers on push to `main`. Do NOT add manual deploy steps to npm scripts.
+
+## Dependencies
+
+- `wrangler` is a devDependency for Cloudflare config schema and local preview — do NOT remove it
+- Do NOT add `@astrojs/cloudflare` — this is a static site

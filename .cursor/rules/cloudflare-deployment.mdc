@@ -1,0 +1,29 @@
+---
+description: Cloudflare Workers deployment configuration and constraints
+globs: wrangler.jsonc
+alwaysApply: false
+---
+
+# Cloudflare Deployment
+
+This project deploys as a **static site** to Cloudflare Workers (not Pages classic).
+
+## Key Configuration
+
+- `wrangler.jsonc` uses `assets.directory` (Workers model), NOT `pages_build_output_dir` (Pages classic model)
+- `astro.config.mjs` must have `output: 'static'` — no SSR adapter is used
+- `wrangler` is installed as a devDependency
+- The `@astrojs/cloudflare` adapter is NOT needed and must NOT be added
+
+## Build Settings (Cloudflare Dashboard)
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Framework preset: Astro (auto-detected)
+- Node version: pinned via `.nvmrc` (currently 20)
+
+## Common Pitfalls
+
+- Do NOT switch `assets.directory` to `pages_build_output_dir` — the project uses the Workers deployment model
+- Do NOT add `@astrojs/cloudflare` — this is a static site, not SSR
+- Do NOT remove `output: 'static'` from `astro.config.mjs` — it prevents Cloudflare from auto-installing the SSR adapter
