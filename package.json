@@ -3,10 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev && wrangler deploy",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview && wrangler dev",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/react": "^4.0.0",
