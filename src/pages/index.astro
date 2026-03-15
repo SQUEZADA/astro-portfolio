@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+import PortfolioHero from "../components/PortfolioHero";
+import PortfolioProjects from "../components/PortfolioProjects";
+import PortfolioContact from "../components/PortfolioContact";
+---
+<BaseLayout title="Portfolio" description="Portfolio — desarrollador y diseñador">
+  <main>
+    <PortfolioHero client:visible />
+    <PortfolioProjects client:visible />
+    <PortfolioContact client:visible />
+  </main>
+</BaseLayout>
